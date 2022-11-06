@@ -1,13 +1,9 @@
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
-    getLocation();
     let places = staticLoadPlaces();
     renderPlaces(places);
 };
-
-var lat = 0;
-var lng = 0;
 
 function staticLoadPlaces() {
     return [{
@@ -17,17 +13,6 @@ function staticLoadPlaces() {
             lng: -9.007045,
         },
     }, ];
-};
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(setLocation);
-    }
-};
-
-function setLocation(position) {
-    lat = position.coords.latitude;
-    lng = position.coords.longitude;
 };
 
 var models = [{
