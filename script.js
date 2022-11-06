@@ -1,19 +1,34 @@
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
-    button.innerText = 'Switch';
+    button.innerText = '?';
+    getLocation();
     let places = staticLoadPlaces();
     renderPlaces(places);
 };
+
+var lat = 0;
+var lng = 0;
 
 function staticLoadPlaces() {
     return [{
         name: 'Pokémon',
         location: {
-            lat: 38.999085,
-            lng: -9.007026,
+            lat: 38.999064,
+            lng: -9.006990,
         },
     }, ];
-}
+};
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(setLocation);
+    }
+};
+
+function setLocation(position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+};
 
 var models = [{
         url: './assets/magnemite/scene.gltf',
@@ -69,7 +84,7 @@ function renderPlaces(places) {
 
         model.setAttribute('animation-mixer', '');
 
-        document.getElementById('buttonChange').addEventListener('click', function() {
+        document.querySelector('button[data-action="change"]').addEventListener('click', function() {
             var entity = document.querySelector('[gps-entity-place]');
             modelIndex++;
             var newIndex = modelIndex % models.length;
