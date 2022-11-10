@@ -1,35 +1,18 @@
-.centered {
-    height: 20%;
-    justify-content: center;
-    position: fixed;
-    bottom: 0%;
-    display: flex;
-    flex-direction: row;
+.arjs-loader {
+    height: 100%;
     width: 100%;
-    margin: 0px auto;
+    position: absolute;
+    top: 0;
     left: 0;
-    right: 0;
-}
-
-button {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
     display: flex;
-    align-items: center;
     justify-content: center;
-    border: 2px solid white;
-    background-color: transparent;
-    width: 2em;
-    height: 2em;
-    border-radius: 100%;
-    font-size: 2em;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    outline: none;
+    align-items: center;
 }
 
-.instructions {
-    position: fixed;
-    top: 5%;
+.arjs-loader div {
+    text-align: center;
     font-size: 1.25em;
     color: white;
-    z-index: 999999;
 }
